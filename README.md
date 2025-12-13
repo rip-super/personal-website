@@ -1,3 +1,3 @@
-# my-amazing-not-terrible-good-great-portfolio-website-that-is-nice
+source code for my personal website.
 
-this is my amazing portfolio website that will not make you want to bleach your eyes :D
+link here: (TODO)
