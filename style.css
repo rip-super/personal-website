@@ -13,7 +13,16 @@
     margin: 0;
 }
 
-html,
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 body {
     width: 100%;
     height: 100%;
@@ -43,6 +52,7 @@ a {
     left: 50%;
     transform: translateX(-50%);
     z-index: 100;
+    animation: fadeIn 1s ease-out forwards;
 }
 
 .nav-item {
@@ -89,6 +99,20 @@ a {
     border-radius: 6px;
     box-shadow: 6px 6px 0 var(--accent), 12px 12px 0 var(--secondary);
     transition: transform 0.15s ease;
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.3s;
 }
 
 .card:hover {
