@@ -222,7 +222,6 @@ a {
     width: 100%;
     padding-top: 7px;
     box-sizing: border-box;
-    border-top: 2px solid var(--secondary);
     display: flex;
     flex-direction: column;
     gap: 10px;
