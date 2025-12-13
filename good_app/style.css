@@ -92,3 +92,7 @@ a {
 .card ul {
     padding-left: 10px;
 }
+
+.card.socials {
+    min-height: 1px;
+}
