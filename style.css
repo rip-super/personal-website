@@ -149,9 +149,6 @@ a {
     gap: 6px;
 }
 
-
-.svg-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+.svg-icon svg {
+    vertical-align: middle;
 }
