@@ -22,12 +22,32 @@ body {
     justify-content: center;
     min-height: 100vh;
     overflow-x: hidden;
+    scrollbar-width: 12px;
+    scrollbar-color: var(--primary) var(--background);
 }
-
 
 a {
     color: #3957ee;
     text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 5px;
+    border: 2px solid var(--background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--accent);
 }
 
 @keyframes fadeIn {
@@ -86,6 +106,7 @@ a {
     transform: translateX(-50%);
     z-index: 100;
     text-align: center;
+    animation: fadeIn 1s ease-out forwards;
 }
 
 .wrapper {
@@ -107,6 +128,7 @@ a {
     height: 520px;
     padding: 0;
     box-sizing: border-box;
+    opacity: 0;
 
     background: var(--primary);
     color: var(--background);
@@ -115,6 +137,31 @@ a {
     box-shadow: 6px 6px 0 var(--accent), 12px 12px 0 var(--secondary);
 
     transition: transform 0.15s ease;
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.card:nth-child(6) {
+    animation-delay: 0.6s;
 }
 
 .card:hover {
