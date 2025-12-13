@@ -17,11 +17,32 @@
         <a href="#" class="nav-item">Contact</a>
     </nav>
 
+    <div class="info-box">
+        Click on an image to enlarge it!
+    </div>
+
     <div class="wrapper">
         <div class="card">
-            <div class="image"></div>
-            <div class="meta"></div>
-            <div class="info"></div>
+            <div class="image">
+                <a href="/projects/images/chat_app.png" class="lightbox">
+                    <img src="/projects/images/chat_app.png" alt="Project Image">
+                </a>
+            </div>
+
+            <div class="text">
+                <div class="meta">
+                    <span class="tag">HTML/CSS</span>
+                    <span class="tag">NodeJS</span>
+                    <a href="https://github.com/rip-super/real-time-chat-app" target="_blank" class="tag github"><i class="fa-brands fa-github icon"
+                            aria-hidden="true"></i></a>
+                </div>
+
+                <div class="info">
+                    <h2>Real Time Chat App</h2>
+                    <p>A real-time chat application built with HTML, CSS, JavaScript, and Node.js. Users can join chat rooms, send messages instantly
+                        via WebSockets, and use features like unique usernames, message persistence, and a light/dark mode toggle.</p>
+                </div>
+            </div>
         </div>
 
         <div class="card">
@@ -54,6 +75,32 @@
             <div class="info"></div>
         </div>
     </div>
+
+    <div id="lightbox-overlay">
+        <img id="lightbox-img" src="" alt="Large Image">
+    </div>
+
+    <script>
+        const lightboxLinks = document.querySelectorAll(".lightbox");
+        const overlay = document.getElementById("lightbox-overlay");
+        const overlayImg = document.getElementById("lightbox-img");
+
+        lightboxLinks.forEach(link => {
+            link.addEventListener("click", e => {
+                e.preventDefault();
+                overlayImg.src = link.href;
+                overlay.classList.add("show");
+            });
+        });
+
+        overlay.addEventListener("click", () => {
+            overlay.classList.remove("show");
+            setTimeout(() => {
+                overlayImg.src = "";
+            }, 400);
+        });
+
+    </script>
 </body>
 
 </html>
