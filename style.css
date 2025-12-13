@@ -32,17 +32,12 @@ a {
     gap: 20px;
     justify-content: center;
     padding: 12px 24px;
-
     background: var(--primary);
     border: 2px solid var(--secondary);
     border-radius: 6px;
-
     box-shadow: 6px 6px 0 var(--accent), 12px 12px 0 var(--secondary);
-
     font-weight: 600;
-
     width: max-content;
-
     position: absolute;
     top: 40px;
     left: 50%;
@@ -65,45 +60,34 @@ a {
 .wrapper {
     min-height: 100vh;
     width: 100%;
-
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     align-content: center;
-
     gap: 40px;
     padding: 40px;
     box-sizing: border-box;
-
     margin-top: 30px;
 }
 
 .card {
     width: 500px;
     min-height: 620px;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     padding: 30px;
     box-sizing: border-box;
-
     text-align: center;
-
     padding: 32px;
     box-sizing: border-box;
-
     background: var(--primary);
     color: var(--background);
-
     border: 2px solid var(--secondary);
     border-radius: 6px;
-
     box-shadow: 6px 6px 0 var(--accent), 12px 12px 0 var(--secondary);
-
     transition: transform 0.15s ease;
 }
 
@@ -132,4 +116,17 @@ a {
 
 .card.socials {
     min-height: 1px;
+}
+
+.svg-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
+.svg-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
