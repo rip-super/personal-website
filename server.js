@@ -34,14 +34,25 @@ const socketToUser = new Map();
 
 app.use(express.json());
 
-app.get("/", (_, res) => {
-    res.sendFile(path.join(__dirname, "..", "..", "index.html"));
+app.use(express.static(__dirname));
+
+app.use("/projects", express.static(path.join(__dirname, "projects")));
+app.get("/projects", (_, res) => {
+    res.sendFile(path.join(__dirname, "projects", "index.html"));
 });
 
-app.use("/projects/chat_app", express.static(path.join(__dirname, "app", "chat")));
-
+app.use("/projects/chat_app", express.static(path.join(__dirname, "projects", "chat_app", "app")));
 app.get("/projects/chat_app", (_, res) => {
-    res.sendFile(path.join(__dirname, "app", "chat", "index.html"));
+    res.sendFile(
+        path.join(__dirname, "projects", "chat_app", "app", "index.html")
+    );
+});
+
+app.use("/projects/chat_app/chat", express.static(path.join(__dirname, "projects", "chat_app", "app", "chat")));
+app.get("/projects/chat_app/chat", (_, res) => {
+    res.sendFile(
+        path.join(__dirname, "projects", "chat_app", "app", "chat", "index.html")
+    );
 });
 
 app.post("/login", (req, res) => {
@@ -109,5 +120,5 @@ io.on("connection", (socket) => {
 
 const PORT = process.env.PORT || 8000;
 server.listen(PORT, () =>
-    console.log(`Server listening on port ${PORT}`)
+    console.log(`Server listening at http://localhost:${PORT}`)
 );
