@@ -33,7 +33,12 @@ const users = new Set();
 const socketToUser = new Map();
 
 app.use(express.json());
-app.use(express.static("app"));
+
+app.use(express.static(path.join(__dirname, "app")));
+
+app.get("/", (_, res) => {
+    res.sendFile(path.join(__dirname, "app", "chat", "index.html"));
+});
 
 app.post("/login", (req, res) => {
     const { name } = req.body;
@@ -48,7 +53,7 @@ app.post("/login", (req, res) => {
 });
 
 app.get("/chat", (_, res) => {
-    res.sendFile(path.join(__dirname, "app", "chat"));
+    res.sendFile(path.join(__dirname, "app", "chat", "index.html"));
 });
 
 io.on("connection", (socket) => {
@@ -72,9 +77,7 @@ io.on("connection", (socket) => {
         const name = socketToUser.get(socket.id) || "Anonymous";
         const timestamp = new Date().toISOString();
         console.log(`Message from ${name} (${socket.id}): ${msg}`);
-        saveMessage({
-            name, text: msg, timestamp
-        });
+        saveMessage({ name, text: msg, timestamp });
         socket.broadcast.emit("chat-message", { name, text: msg, timestamp });
     });
 
@@ -94,8 +97,6 @@ io.on("connection", (socket) => {
             });
 
             socket.broadcast.emit("user-left", name);
-        } else {
-            console.log(`Disconnected socket with no known user: ${socket.id}`);
         }
     });
 
@@ -104,10 +105,9 @@ io.on("connection", (socket) => {
         db.removeCollection("messages");
         io.emit("reload-page");
     });
-
 });
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 server.listen(PORT, () =>
-    console.log(`Server listening on http://localhost:${PORT}`)
+    console.log(`Server listening on port ${PORT}`)
 );
