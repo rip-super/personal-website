@@ -46,8 +46,8 @@ app.get("/projects/chat_app", (_, res) => {
     res.sendFile(path.join(__dirname, "app", "index.html"));
 });
 
-app.use("/projects/chat_app/chat", express.static(path.join(__dirname, "app", "chat")));
-app.get("/projects/chat_app/chat", (_, res) => {
+app.use("/chat", express.static(path.join(__dirname, "app", "chat")));
+app.get("/chat", (_, res) => {
     res.sendFile(path.join(__dirname, "app", "chat", "index.html"));
 });
 
