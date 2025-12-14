@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Chat Room</title>
+    <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://kit.fontawesome.com/9cb87210c1.js" crossorigin="anonymous"></script>
+    <script defer src="/socket.io/socket.io.js"></script>
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <header class="util-button-container">
+            <button class="util-button outline" id="trash-button">
+                <i class="fa-solid fa-trash-can"></i>
+            </button>
+            <button id="theme-toggle" class="util-button outline" onclick="toggleTheme()">
+                <i class="fa-solid" id="theme-icon"></i>
+            </button>
+            <button class="util-button outline" id="logout-button">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </button>
+        </header>
+        <div id="message-container"></div>
+        <form id="send-container">
+            <input id="message-input" placeholder="Type a message..." autocomplete="off" required />
+            <button id="send-button">Send</button>
+        </form>
+    </div>
+
+    <dialog id="dialog-thing">
+        <center>
+            <p>Are you <strong style="font-size: x-large;">sure</strong> you want to delete all messages?<br>Doing this
+                will remove <strong style="font-size: x-large;">every</strong> message for <strong
+                    style="font-size: x-large;">every</strong> user.<br>This action
+                is <strong style="color: red; font-size: x-large;">irreversible!!</strong><br>Do you wish to
+                proceed?</p>
+        </center>
+        <span>
+            <button id="closeBtn">Yes</button>
+            <button id="noBtn">No</button>
+        </span>
+    </dialog>
+</body>
+
+</html>

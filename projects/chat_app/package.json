@@ -1,0 +1,18 @@
+{
+    "name": "testlol",
+    "version": "1.0.0",
+    "description": "",
+    "main": "client.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "dependencies": {
+        "express": "^5.1.0",
+        "lokijs": "^1.5.12",
+        "socket.io": "^4.8.1"
+    }
+}

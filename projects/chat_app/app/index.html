@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Sign In</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            min-width: 425px;
+            align-items: center;
+        }
+
+        input,
+        button {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+
+        .fade-out {
+            animation: fadeOut 0.5s forwards !important;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="login-form">
+        <h2>Enter your name to chat</h2>
+        <input id="name-input" placeholder="Your name" required autocomplete="off" />
+        <button type="submit">Join Chat</button>
+        <div class="error" id="error-msg"></div>
+    </form>
+
+    <script>
+        const form = document.getElementById("login-form");
+        const input = document.getElementById("name-input");
+        const errorDiv = document.getElementById("error-msg");
+
+        document.body.addEventListener("animationend", (e) => {
+            if (e.animationName === "fadeIn") {
+                document.body.style.opacity = "1";
+            }
+        });
+
+        form.addEventListener("submit", async e => {
+            e.preventDefault();
+            const name = input.value.trim();
+            errorDiv.textContent = "";
+
+            try {
+                const res = await fetch("/login", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ name })
+                });
+                const body = await res.json();
+                if (!body.ok) throw new Error(body.error);
+
+                document.body.classList.add("fade-out");
+
+                setTimeout(() => {
+                    window.location = `/chat/?name=${encodeURIComponent(name)}`;
+                }, 500);
+            } catch (err) {
+                errorDiv.textContent = err.message;
+            }
+        });
+    </script>
+</body>
+
+</html>
