@@ -96,7 +96,7 @@
                 document.body.classList.add("fade-out");
 
                 setTimeout(() => {
-                    window.location = `/chat/?name=${encodeURIComponent(name)}`;
+                    window.location = `/projects/chat_app/chat/?name=${encodeURIComponent(name)}`;
                 }, 500);
             } catch (err) {
                 errorDiv.textContent = err.message;
