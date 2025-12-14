@@ -34,9 +34,11 @@ const socketToUser = new Map();
 
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, "app")));
+app.use(express.static(path.join(__dirname, "..", "..")));
 
-app.get("/", (_, res) => {
+app.use("/projects/chat_app", express.static(path.join(__dirname, "app", "chat")));
+
+app.get("/projects/chat_app", (_, res) => {
     res.sendFile(path.join(__dirname, "app", "chat", "index.html"));
 });
 
@@ -50,10 +52,6 @@ app.post("/login", (req, res) => {
     }
     users.add(name);
     res.json({ ok: true });
-});
-
-app.get("/chat", (_, res) => {
-    res.sendFile(path.join(__dirname, "app", "chat", "index.html"));
 });
 
 io.on("connection", (socket) => {
@@ -107,7 +105,7 @@ io.on("connection", (socket) => {
     });
 });
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 server.listen(PORT, () =>
     console.log(`Server listening on port ${PORT}`)
 );
