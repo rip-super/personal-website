@@ -11,6 +11,7 @@
     font-family: "Poppins";
     font-size: 15px;
     margin: 0;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -115,7 +116,9 @@ a {
     justify-content: center;
     gap: 75px;
     padding: 225px;
+    padding-bottom: 50px;
     box-sizing: border-box;
+    position: relative;
 }
 
 .card {
@@ -246,4 +249,28 @@ a {
     max-height: 90%;
     border-radius: 6px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.info-box-btn {
+    position: static;
+    transform: none;
+    top: auto;
+    left: auto;
+}
+
+.bottom-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.action-btn {
+    transition: transform 0.15s ease;
+}
+
+.action-btn:hover {
+    transform: translate(-2px, -2px);
 }
