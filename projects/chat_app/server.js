@@ -8,7 +8,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
 
-const db = new Loki("chat.db", {
+const db = new Loki(path.join(__dirname, "chat.db"), {
     autoload: true,
     autoloadCallback: dbInit,
     autosave: false
@@ -34,25 +34,21 @@ const socketToUser = new Map();
 
 app.use(express.json());
 
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, "..", "..")));
 
-app.use("/projects", express.static(path.join(__dirname, "projects")));
+app.use("/projects", express.static(path.join(__dirname, "..")));
 app.get("/projects", (_, res) => {
-    res.sendFile(path.join(__dirname, "projects", "index.html"));
+    res.sendFile(path.join(__dirname, "..", "index.html"));
 });
 
-app.use("/projects/chat_app", express.static(path.join(__dirname, "projects", "chat_app", "app")));
+app.use("/projects/chat_app", express.static(path.join(__dirname, "app")));
 app.get("/projects/chat_app", (_, res) => {
-    res.sendFile(
-        path.join(__dirname, "projects", "chat_app", "app", "index.html")
-    );
+    res.sendFile(path.join(__dirname, "app", "index.html"));
 });
 
-app.use("/projects/chat_app/chat", express.static(path.join(__dirname, "projects", "chat_app", "app", "chat")));
+app.use("/projects/chat_app/chat", express.static(path.join(__dirname, "app", "chat")));
 app.get("/projects/chat_app/chat", (_, res) => {
-    res.sendFile(
-        path.join(__dirname, "projects", "chat_app", "app", "chat", "index.html")
-    );
+    res.sendFile(path.join(__dirname, "app", "chat", "index.html"));
 });
 
 app.post("/login", (req, res) => {
