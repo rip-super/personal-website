@@ -18,7 +18,7 @@ body {
     height: 100%;
     margin: 0;
     background-color: var(--background);
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 a {
@@ -79,12 +79,12 @@ a {
     gap: 40px;
     padding: 40px;
     box-sizing: border-box;
-    margin-top: 30px;
+    margin-top: 13vh;
 }
 
 .titlebar {
     width: 50vw;
-    min-height: 620px;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -96,12 +96,17 @@ a {
     border: 2px solid var(--secondary);
     border-radius: 6px;
     box-shadow: 6px 6px 0 var(--accent), 12px 12px 0 var(--secondary);
+    transition: transform 0.15s ease;
     opacity: 0;
     animation: fadeIn 0.6s ease-out forwards;
 }
 
 .titlebar:hover {
     transform: translate(-2px, -2px);
+}
+
+.titlebar> :not(h2) {
+    flex: 1;
 }
 
 .heading {
@@ -118,8 +123,11 @@ a {
     display: flex;
     gap: 20px;
     padding: 24px;
+    padding-top: 10px;
     background: var(--primary);
     border-radius: 10px;
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
 }
 
 .left {
@@ -145,7 +153,7 @@ a {
     left: 50%;
     transform: translateX(-50%);
     width: 2px;
-    height: 125px;
+    height: 70%;
     margin-top: 7px;
     background: var(--secondary);
     opacity: 0.85;

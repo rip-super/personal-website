@@ -21,12 +21,29 @@
 
             <div class="card">
                 <div class="left">
+                    <img src="/background/images/mcneil.png" alt="School logo">
+                    <div class="line"></div>
+                </div>
+
+                <div class="content">
+                    <div class="date">August 2025 - Present</div>
+                    <div class="title">McNeil High School</div>
+                    <div class="subtitle">Student</div>
+                    <ul>
+                        <li>Currently a freshman attending MHS. On-track to graduate with all Advanced/AP courses.</li>
+                        <li>Still working on and developing various projects in many languages, such as this website.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="left">
                     <img src="/background/images/prms.jpg" alt="School logo">
                     <div class="line"></div>
                 </div>
 
                 <div class="content">
-                    <div class="date">August 2023 - May 2026</div>
+                    <div class="date">May 2026</div>
                     <div class="title">Pearson Ranch Middle School</div>
                     <div class="subtitle">Student</div>
                     <ul>
@@ -39,22 +56,82 @@
 
             <div class="card">
                 <div class="left">
-                    <img src="/background/images/mcneil.png" alt="School logo">
+                    <img src="/background/images/nse.png" alt="School logo">
                     <div class="line"></div>
                 </div>
 
                 <div class="content">
-                    <div class="date">August 2025 - Present</div>
-                    <div class="title">McNeil High School</div>
-                    <div class="subtitle">Student</div>
+                    <div class="date">April 2025</div>
+                    <div class="title">National Spanish Exam 2</div>
+                    <div class="subtitle">Silver Medal</div>
                     <ul>
-                        <li>Currently a freshman attending MHS. On-track to graduate with all Advanced/AP courses.</li>
-                        <li>Built a variety of programming projects including this website.</li>
+                        <li>Participated in the Spanish National Exam for Spanish 2</li>
+                        <li>Acheived a 92th percentile, winning a silver medal.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="left">
+                    <img src="/background/images/prms.jpg" alt="School logo">
+                    <div class="line"></div>
+                </div>
+
+                <div class="content">
+                    <div class="date">September 2025</div>
+                    <div class="title">PRMS Coding Club</div>
+                    <div class="subtitle">Vice President</div>
+                    <ul>
+                        <li>Elected as VP for Coding Club, allowing me to better server the club's community.</li>
+                        <li>Allowed me to understand and have experience with a leadership role within my favorite club.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="left">
+                    <img src="/background/images/njhs.jpg" alt="School logo">
+                    <div class="line"></div>
+                </div>
+
+                <div class="content">
+                    <div class="date">August 2025</div>
+                    <div class="title">National Junior Honor Society</div>
+                    <div class="subtitle">Member</div>
+                    <ul>
+                        <li>Accepted into NJHS, and asissted in varipus volunterring projects and prgrams.</li>
+                        <li>Volunteering experience includes: Volunteering at PRMS events, making sandwiches for the needy, and tutoring fellow PRMS
+                            orchestra students.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="left">
+                    <img src="/background/images/nse.png" alt="School logo">
+                    <div class="line"></div>
+                </div>
+
+                <div class="content">
+                    <div class="date">April 2024</div>
+                    <div class="title">National Spanish Exam 1B</div>
+                    <div class="subtitle">Silver Medal</div>
+                    <ul>
+                        <li>Participated in the Spanish National Exam for Spanish 1B</li>
+                        <li>Acheived a 94th percentile, winning a silver medal.</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        const cards = document.querySelectorAll(".card");
+
+        cards.forEach((card, index) => {
+            card.style.animationDelay = `${0.1 * (index + 1)}s`;
+        });
+    </script>
 
 </body>
 
