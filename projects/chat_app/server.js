@@ -41,6 +41,11 @@ app.get("/projects", (_, res) => {
     res.sendFile(path.join(__dirname, "..", "index.html"));
 });
 
+app.use("/background", express.static(path.join(__dirname, "..", "..", "background")));
+app.get("/background", (_, res) => {
+    res.sendFile(path.join(__dirname, "..", "..", "background", "index.html"));
+});
+
 app.use("/projects/chat_app", express.static(path.join(__dirname, "app")));
 app.get("/projects/chat_app", (_, res) => {
     res.sendFile(path.join(__dirname, "app", "index.html"));
