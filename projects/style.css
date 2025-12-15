@@ -274,3 +274,57 @@ a {
 .action-btn:hover {
     transform: translate(-2px, -2px);
 }
+
+@media (max-width: 600px) {
+    body {
+        justify-content: flex-start;
+    }
+
+    .info-box {
+        margin-top: 35px;
+    }
+
+    .wrapper {
+        grid-template-columns: 1fr;
+        padding: 35px 16px 40px;
+        gap: 50px;
+    }
+
+    .card {
+        width: 100%;
+        height: 50vh;
+    }
+
+    .card .image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
+    .card .image img {
+        height: 100%;
+    }
+
+    .card .text .info {
+        margin-right: 16px;
+    }
+
+    .card .text .info p {
+        font-size: 14px;
+    }
+
+    .nav {
+        margin-top: 40px;
+    }
+
+    .nav,
+    .info-box {
+        position: static;
+        transform: none;
+        margin-bottom: 20px;
+    }
+
+    .bottom-actions {
+        margin-top: -30px;
+    }
+}

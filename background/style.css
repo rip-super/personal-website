@@ -234,3 +234,75 @@ a {
     line-height: 1.5;
     color: rgba(0, 0, 0, 0.9);
 }
+
+@media (max-width: 600px) {
+    body {
+        height: auto;
+    }
+
+    .nav {
+        margin-top: 40px;
+        margin-left: 30px;
+    }
+
+    .info-box {
+        width: 50%;
+        margin-left: 20%;
+        margin-top: 60px;
+    }
+
+    .wrapper {
+        margin-top: 20px;
+        padding: 20px;
+        align-items: flex-start;
+    }
+
+    .timeline {
+        width: 85%;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+        flex-direction: row;
+        padding: 16px;
+        margin-bottom: 40px;
+    }
+
+    .left {
+        flex-shrink: 0;
+    }
+
+    .left img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .line,
+    .line2 {
+        height: 10%;
+    }
+
+    .content {
+        padding-left: 8px;
+    }
+
+    .title {
+        font-size: 16px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+    }
+
+    .content li {
+        font-size: 13px;
+    }
+
+    .nav,
+    .info-box {
+        position: static;
+        transform: none;
+        margin-bottom: 16px;
+    }
+}
