@@ -33,7 +33,6 @@ const users = new Set();
 const socketToUser = new Map();
 
 app.use(express.json());
-
 app.use(express.static(path.join(__dirname, "..", "..")));
 
 app.use("/projects", express.static(path.join(__dirname, "..")));
@@ -72,7 +71,6 @@ io.on("connection", (socket) => {
     socket.on("join", (name) => {
         socketToUser.set(socket.id, name);
         users.add(name);
-        console.log(`User joined: ${name} (socket: ${socket.id})`);
 
         const chatHistory = messages.chain().simplesort("timestamp").data();
         socket.emit("chat-history", chatHistory);
@@ -88,7 +86,6 @@ io.on("connection", (socket) => {
     socket.on("send-chat-message", (msg) => {
         const name = socketToUser.get(socket.id) || "Anonymous";
         const timestamp = new Date().toISOString();
-        console.log(`Message from ${name} (${socket.id}): ${msg}`);
         saveMessage({ name, text: msg, timestamp });
         socket.broadcast.emit("chat-message", { name, text: msg, timestamp });
     });
@@ -100,7 +97,6 @@ io.on("connection", (socket) => {
         if (name) {
             users.delete(name);
             socketToUser.delete(socket.id);
-            console.log(`User disconnected: ${name} (socket: ${socket.id})`);
 
             saveMessage({
                 name: "System",
