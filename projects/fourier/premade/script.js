@@ -111,12 +111,14 @@ function draw() {
     background(0);
 
     let v = epicycles(width / 2, height / 2, 0, fourierCoefficients);
-    path.unshift(v);
 
-    beginShape();
-    noFill();
-    strokeWeight(2);
+    path.unshift(v);
+    if (path.length > fourierCoefficients.length) path.pop();
+
     stroke(5, 203, 252);
+    strokeWeight(2);
+    noFill();
+    beginShape();
     for (let i = 0; i < path.length; i++) {
         vertex(path[i].x, path[i].y);
     }
@@ -124,11 +126,7 @@ function draw() {
 
     const dt = TWO_PI / fourierCoefficients.length;
     time += dt;
-
-    if (time > TWO_PI) {
-        time = 0;
-        path = [];
-    }
+    if (time > TWO_PI) time = 0;
 }
 
 function windowResized() {
