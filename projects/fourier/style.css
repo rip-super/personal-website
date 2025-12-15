@@ -27,6 +27,11 @@ body {
     scrollbar-color: var(--primary) var(--background);
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -164,4 +169,80 @@ body {
     text-align: center;
     margin-top: 25px;
     width: 25%;
+}
+
+@media (max-width: 768px) {
+
+    * {
+        font-size: 14px;
+    }
+
+    body {
+        justify-content: flex-start;
+        padding-top: 120px;
+    }
+
+    .nav {
+        top: 20px;
+        padding: 10px 16px;
+        gap: 12px;
+        box-shadow: 4px 4px 0 var(--accent), 8px 8px 0 var(--secondary);
+    }
+
+    .nav-item {
+        padding: 4px 8px;
+    }
+
+    .info-box {
+        top: 120px;
+        width: calc(100% - 40px);
+        max-width: 360px;
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+
+    .wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-top: 100px;
+        padding: 0 20px 60px;
+    }
+
+    .item {
+        margin-top: 0;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 360px;
+        height: 260px;
+        box-shadow: 4px 4px 0 var(--accent), 8px 8px 0 var(--secondary);
+    }
+
+    .card-img {
+        border-radius: 6px;
+    }
+
+    .card-btn {
+        width: auto;
+        padding: 8px 16px;
+        margin-top: 16px;
+        font-size: 14px;
+        box-shadow: 4px 4px 0 var(--accent), 8px 8px 0 var(--secondary);
+    }
+
+    .info-box.small {
+        position: relative;
+        margin: 20px auto 20px;
+        left: auto;
+        top: auto;
+        transform: none;
+        z-index: 1;
+        text-align: center;
+        width: 50vw;
+    }
+
+    .info-box.small i {
+        font-size: 9px;
+    }
 }

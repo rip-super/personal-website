@@ -327,4 +327,8 @@ a {
     .bottom-actions {
         margin-top: -30px;
     }
+
+    .to-show-or-not-to-show {
+        display: none;
+    }
 }
