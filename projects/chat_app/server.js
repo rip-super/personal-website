@@ -45,6 +45,21 @@ app.get("/background", (_, res) => {
     res.sendFile(path.join(__dirname, "..", "..", "background", "index.html"));
 });
 
+app.use("/projects/fourier", express.static(path.join(__dirname, "..", "fourier")));
+app.get("/projects/fourier", (_, res) => {
+    res.sendFile(path.join(__dirname, "..", "fourier", "index.html"));
+});
+
+app.use("/projects/fourier/premade", express.static(path.join(__dirname, "..", "fourier", "premade")));
+app.get("/projects/fourier", (_, res) => {
+    res.sendFile(path.join(__dirname, "..", "fourier", "premade", "index.html"));
+});
+
+app.use("/projects/fourier/user", express.static(path.join(__dirname, "..", "fourier", "user")));
+app.get("/projects/fourier", (_, res) => {
+    res.sendFile(path.join(__dirname, "..", "fourier", "user", "index.html"));
+});
+
 app.use("/projects/chat_app", express.static(path.join(__dirname, "app")));
 app.get("/projects/chat_app", (_, res) => {
     res.sendFile(path.join(__dirname, "app", "index.html"));
