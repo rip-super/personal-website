@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap">
+    <title>Fourier - Premade</title>
+</head>
+
+<body>
+    <div class="image-selector">
+        <h4>Choose Drawing:</h4>
+        <div class="images">
+            <img src="/projects/fourier/images/infinity.svg" data-index="0">
+            <img src="/projects/fourier/images/pi.svg" data-index="1">
+            <img src="/projects/fourier/images/treble_clef.svg" data-index="2">
+            <img src="/projects/fourier/images/fourier.svg" data-index="3">
+        </div>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll(".image-selector img");
+        let drawing = [];
+
+        const drawingFiles = [
+            "/projects/fourier/premade/data/infinity.json",
+            "/projects/fourier/premade/data/pi.json",
+            "/projects/fourier/premade/data/treble.json",
+            "/projects/fourier/premade/data/fourier.json"
+        ];
+
+        images.forEach(img => {
+            img.addEventListener("click", () => {
+                const index = img.dataset.index;
+                setCurrentDrawing(index);
+            });
+        });
+
+        async function setCurrentDrawing(index) {
+            const url = drawingFiles[index];
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`Failed to load ${url}`);
+                const data = await response.json();
+                drawing = data;
+
+                console.log("Loaded drawing:", index, drawing.length, "points");
+
+                startDrawing();
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        setCurrentDrawing(0);
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
