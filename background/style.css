@@ -19,11 +19,33 @@ body {
     margin: 0;
     background-color: var(--background);
     overflow-x: hidden;
+    scrollbar-width: 12px;
+    scrollbar-color: var(--primary) var(--background);
 }
 
 a {
     color: #3957ee;
     text-decoration: none;
+}
+
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 5px;
+    border: 2px solid var(--background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--accent);
 }
 
 @keyframes fadeIn {
