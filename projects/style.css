@@ -288,6 +288,7 @@ a {
         grid-template-columns: 1fr;
         padding: 35px 16px 40px;
         gap: 50px;
+        justify-content: center;
     }
 
     .card {
