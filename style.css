@@ -153,17 +153,7 @@ a {
     vertical-align: middle;
 }
 
-@media (max-width: 600px) {
-    body {
-        overflow: auto;
-    }
-
-    .wrapper {
-        margin-top: 13vh;
-    }
-}
-
-@media (max-width: 1280px) {
+@media (max-width: 1660px) {
     .card p {
         font-size: 14px;
     }
@@ -177,5 +167,16 @@ a {
     .wrapper {
         gap: 24px;
         padding: 24px;
+    }
+}
+
+@media (max-width: 1200px) {
+    body {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .wrapper {
+        margin-top: 15vh;
     }
 }
