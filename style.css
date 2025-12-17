@@ -11,7 +11,6 @@
     font-family: "Poppins";
     font-size: 15px;
     margin: 0;
-    zoom: 0.99;
 }
 
 body {
@@ -161,5 +160,22 @@ a {
 
     .wrapper {
         margin-top: 13vh;
+    }
+}
+
+@media (max-width: 1280px) {
+    .card p {
+        font-size: 14px;
+    }
+
+    .card {
+        width: 380px;
+        min-height: 520px;
+        padding: 24px;
+    }
+
+    .wrapper {
+        gap: 24px;
+        padding: 24px;
     }
 }

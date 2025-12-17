@@ -12,7 +12,6 @@
     font-size: 15px;
     margin: 0;
     scroll-behavior: smooth;
-    zoom: 0.99;
 }
 
 body {
@@ -333,5 +332,20 @@ a {
 
     .to-show-or-not-to-show {
         display: none;
+    }
+}
+
+@media (max-width: 1280px) {
+    .wrapper {
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 50px;
+        padding: 180px 40px 50px;
+        gap: 40px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 480px;
+        height: 565px;
     }
 }
