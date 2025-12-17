@@ -68,11 +68,8 @@ a {
     border-radius: 6px;
     box-shadow: 6px 6px 0 var(--accent), 12px 12px 0 var(--secondary);
     font-weight: 600;
-    width: max-content;
-    position: absolute;
-    top: 40px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: static;
+    transform: none;
     z-index: 100;
     opacity: 0;
     animation: fadeIn 1s ease-out forwards;
@@ -91,6 +88,7 @@ a {
 }
 
 .info-box {
+    width: auto;
     background: var(--primary);
     color: var(--background);
     border: 2px solid var(--secondary);
@@ -98,13 +96,18 @@ a {
     box-shadow: 6px 6px 0 var(--accent), 12px 12px 0 var(--secondary);
     padding: 10px 20px;
     font-weight: 600;
-    position: absolute;
-    top: 140px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: static;
     z-index: 100;
     text-align: center;
     animation: fadeIn 1s ease-out forwards;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding-top: 40px;
 }
 
 .wrapper {
@@ -118,7 +121,6 @@ a {
     gap: 50px;
     padding: 40px;
     box-sizing: border-box;
-    margin-top: 20vh;
 }
 
 .timeline {
