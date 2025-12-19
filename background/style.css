@@ -243,9 +243,11 @@ a {
     }
 
     .info-box {
-        width: 50%;
-        margin-left: 20%;
-        margin-top: 35%;
+        width: 30%;
+        margin-top: 10px;
+        text-align: center;
+        position: static;
+        transform: none;
     }
 
     .wrapper {

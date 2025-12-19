@@ -297,10 +297,6 @@ a {
         justify-content: flex-start;
     }
 
-    .info-box {
-        margin-top: 35px;
-    }
-
     .wrapper {
         grid-template-columns: 1fr;
         padding: 35px 16px 40px;
@@ -341,6 +337,11 @@ a {
         position: static;
         transform: none;
         margin-bottom: 20px;
+    }
+
+    .info-box {
+        margin-top: 35px;
+        margin-bottom: -15px;
     }
 
     .bottom-actions {
